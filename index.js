@@ -1,26 +1,26 @@
 // Factory Function
-function createCircle(radius) {
-  return {
-    radius,
-    draw() {
-      console.log('draw')
-    }
-  }
-}
+// function createCircle(radius) {
+//   return {
+//     radius,
+//     draw() {
+//       console.log('draw')
+//     }
+//   }
+// }
 
-const circleOne = createCircle(5.6)
+// const circleOne = createCircle(5.6)
 
 // circleOne.draw()
 // console.log(circleOne.radius)
 
-function Circle(radius) {
-  this.radius = radius
-  this.draw = function () {
-    console.log('draw')
-  }
-}
+// function Circle(radius) {
+//   this.radius = radius
+//   this.draw = function () {
+//     console.log('draw')
+//   }
+// }
 
-const circleTwo = new Circle(3)
+// const circleTwo = new Circle(3)
 
 // console.log(circleTwo.radius)
 
@@ -151,13 +151,101 @@ const circleTwo = new Circle(3)
 // console.log(C)
 
 // Difference of sets
-let a = [1, 2, 3, 4, 5]
-let b = [3, 4, 5, 6]
+// let a = [1, 2, 3, 4, 5]
+// let b = [3, 4, 5, 6]
 
-let A = new Set(a)
-let B = new Set(b)
+// let A = new Set(a)
+// let B = new Set(b)
 
-let c = a.filter(num => !B.has(num))
-console.log(c)
-let d = b.filter(num => !A.has(num))
-console.log(d)
+// let c = a.filter(num => !B.has(num))
+// console.log(c)
+// let d = b.filter(num => !A.has(num))
+// console.log(d)
+
+// Destructuring Array
+// const countries = [['Finland', 'Helsinki'], ['Sweden', 'Stockholm'], ['Norway', 'Oslo']]
+
+// for (const [country, city] of countries) {
+//   console.log(country, city)
+// }
+
+// Destructuring Object
+// const rectangle = {
+//   width: 20,
+//   height: 10,
+//   area: 200
+// }
+
+// let { width: w, height: h, area: a, perimeter = 60 } = rectangle
+// console.log(w, h, a, perimeter)
+
+// Console
+// console.log()
+// console.clear()
+// console.log("%s is %d years old.", "John", 32) //s stands for string. d stands for digit
+
+// console.log('Console Log')
+// console.info('Console Info')
+// console.debug('Console Debug')
+// console.warn('Console Warn')
+// console.error('Console Error')
+
+// console.dir({ user: 'John Smith', age: 36 })
+// console.log({ user: 'John Smith', age: 36 })
+
+// let isWorking = false
+// console.assert(isWorking, "this is the reason why") // Only show message when the first argument is false
+
+// console.countReset()
+
+// for (let i = 0; i < 10; i++) {
+//   console.count()
+// }
+
+// console.time()
+// setTimeout(() => {
+//   console.timeEnd()
+// }, 5000)
+
+// console.timeLog()
+
+// async function getUsers() {
+//   let response = await fetch('https://jsonplaceholder.typicode.com/users')
+//   let data = await response.json()
+//   console.table(data, ['name', 'username', 'email'])
+// }
+
+// getUsers()
+
+// Error Handling
+
+// let json = '{ "age": 30 }'
+
+// try {
+//   let user = JSON.parse(json)
+
+//   if (!user.name) {
+//     throw new SyntaxError("Incomplete data")
+//   }
+
+// } catch (error) {
+//   console.log("JSON Error: " + error.stack)
+//   console.log("JSON Error: " + error.name)
+//   console.log("JSON Error: " + error.message)
+//   console.log("JSON Error: " + error)
+// }
+
+const throwErrorExample = () => {
+  let x = prompt('Enter a number: ')
+  try {
+    if (x === '') throw 'empty'
+    if (isNaN(x)) throw 'not a number'
+    x = Number(x)
+    if (x <= 5) throw 'too low'
+    if (x > 10) throw 'too high'
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+throwErrorExample()
