@@ -235,17 +235,48 @@
 //   console.log("JSON Error: " + error)
 // }
 
-const throwErrorExample = () => {
-  let x = prompt('Enter a number: ')
-  try {
-    if (x === '') throw 'empty'
-    if (isNaN(x)) throw 'not a number'
-    x = Number(x)
-    if (x <= 5) throw 'too low'
-    if (x > 10) throw 'too high'
-  } catch (error) {
-    console.log(error)
-  }
-}
+// const throwErrorExample = () => {
+//   let x = prompt('Enter a number: ')
+//   try {
+//     if (x === '') throw 'empty'
+//     if (isNaN(x)) throw 'not a number'
+//     x = Number(x)
+//     if (x <= 5) throw 'too low'
+//     if (x > 10) throw 'too high'
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
 
-throwErrorExample()
+// throwErrorExample()
+
+// Classes Getter & Setter
+// class Square {
+//   constructor(width) {
+//     this.width = width
+//     this.height = width
+//   }
+//   get area() {
+//     return this.width * this.height
+//   }
+//   set area(area) {
+//     this.width = Math.sqrt(area)
+//     this.height = this.width
+//   }
+// }
+
+// const square1 = new Square(4)
+// console.log(square1.area)
+// square1.area = 25
+// console.log(square1.area)
+
+window.localStorage.setItem('firstName', 'Wei')
+
+const firstName = window.localStorage.getItem('firstName')
+console.log(firstName)
+
+const skills = ['Html', 'css', 'JavaScript', 'python', 'React']
+
+window.localStorage.setItem('skills', JSON.stringify(skills))
+
+let getSkills = window.localStorage.getItem('skills')
