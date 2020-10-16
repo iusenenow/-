@@ -270,13 +270,24 @@
 // square1.area = 25
 // console.log(square1.area)
 
-window.localStorage.setItem('firstName', 'Wei')
+// window.localStorage.setItem('firstName', 'Wei')
 
-const firstName = window.localStorage.getItem('firstName')
-console.log(firstName)
+// const firstName = window.localStorage.getItem('firstName')
+// console.log(firstName)
 
-const skills = ['Html', 'css', 'JavaScript', 'python', 'React']
+// const skills = ['Html', 'css', 'JavaScript', 'python', 'React']
 
-window.localStorage.setItem('skills', JSON.stringify(skills))
+// window.localStorage.setItem('skills', JSON.stringify(skills))
 
-let getSkills = window.localStorage.getItem('skills')
+// let getSkills = window.localStorage.getItem('skills')
+
+// window.addEventListener('storage', e => {
+//   if (e.key !== 'now') return
+//   alert(e.key)
+// })
+// localStorage.setItem('now', Date.now())
+// localStorage.clear()
+
+console.log(document.cookie)
+
+console.log(document.cookie.split(';'))
