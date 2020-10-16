@@ -288,6 +288,24 @@
 // localStorage.setItem('now', Date.now())
 // localStorage.clear()
 
-console.log(document.cookie)
+// console.log(document.cookie)
 
-console.log(document.cookie.split(';'))
+// console.log(document.cookie.split(';'))
+
+// prototype
+let animal = {
+  eats: true,
+  walk() { console.log('Animal walk') }
+}
+
+let rabbit = {
+  jumps: true,
+  __proto__: animal
+}
+
+let longEar = {
+  earlength: 10,
+  __proto__: rabbit
+}
+
+longEar.walk()
