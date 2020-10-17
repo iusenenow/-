@@ -293,19 +293,86 @@
 // console.log(document.cookie.split(';'))
 
 // prototype
+// 1.
+// let animal = {
+//   eats: true,
+//   walk() { console.log('Animal walk') }
+// }
+
+// let rabbit = {
+//   jumps: true,
+//   __proto__: animal
+// }
+
+// let longEar = {
+//   earlength: 10,
+//   __proto__: rabbit
+// }
+
+// longEar.walk()
+
+// 2.
+// let user = {
+//   name: "John",
+//   surname: "Smith",
+
+//   set fullName(value) {
+//     [this.name, this.surname] = value.split(" ");
+//   },
+
+//   get fullName() {
+//     return `${this.name} ${this.surname}`;
+//   }
+// };
+
+// let admin = {
+//   __proto__: user,
+//   isAdmin: true
+// };
+
+// console.log(admin.fullName)
+
+// admin.fullName = "Alice Cooper"
+
+// console.log(admin.fullName)
+// console.log(user.fullName)
+
+// 3
+// let animal = {
+//   walk() {
+//     if (!this.isSleeping) {
+//       alert(`I walk`);
+//     }
+//   },
+//   sleep() {
+//     this.isSleeping = true;
+//   }
+// };
+
+// let rabbit = {
+//   name: "White Rabbit",
+//   __proto__: animal
+// };
+
+// // modifies rabbit.isSleeping
+// rabbit.sleep();
+// animal.sleep()
+
+// console.log(rabbit.isSleeping)
+// console.log(animal.isSleeping)
+// animal.walk()
+
+// 4
 let animal = {
-  eats: true,
-  walk() { console.log('Animal walk') }
-}
+  eats: true
+};
 
 let rabbit = {
   jumps: true,
   __proto__: animal
-}
+};
 
-let longEar = {
-  earlength: 10,
-  __proto__: rabbit
+for (let prop in rabbit) {
+  let isOwn = rabbit.hasOwnProperty(prop)
+  isOwn ? console.log(`Our: ${prop}`) : console.log(`Inherited: ${prop}`)
 }
-
-longEar.walk()
