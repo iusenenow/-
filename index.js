@@ -363,16 +363,80 @@
 // animal.walk()
 
 // 4
-let animal = {
-  eats: true
-};
+// let animal = {
+//   eats: true
+// };
 
-let rabbit = {
-  jumps: true,
-  __proto__: animal
-};
+// let rabbit = {
+//   jumps: true,
+//   __proto__: animal
+// };
 
-for (let prop in rabbit) {
-  let isOwn = rabbit.hasOwnProperty(prop)
-  isOwn ? console.log(`Our: ${prop}`) : console.log(`Inherited: ${prop}`)
+// for (let prop in rabbit) {
+//   let isOwn = rabbit.hasOwnProperty(prop)
+//   isOwn ? console.log(`Our: ${prop}`) : console.log(`Inherited: ${prop}`)
+// }
+
+// 5.bind call apply
+// let obj1 = { a: 'a1' }
+// let obj2 = { a: 'a2' }
+
+// let Fex = function (a, b) {
+//   console.log(this)
+//   console.log(a, b)
+// }
+
+// Fex.call(obj1, 1, 2)
+// Fex.apply(obj2, [1, 2])
+// let f = Fex.bind(obj1)
+// f(1, 2)
+
+// 6.Implicit binding
+// let obj = {
+//   a: 1,
+//   f() {
+//     console.log(this)
+//   },
+//   g() {
+//     console.log(this)
+//   }
+// }
+
+// obj.f() // this refer to obj
+// obj.g() // this refer to obj
+
+// let f3 = obj.f
+// f3() // direct reference to function f. - Window
+
+// function addOne() {
+//   this.count++
+// }
+
+// window.count = 8
+// addOne.count = 0
+// addOne()
+// addOne()
+// addOne()
+
+// console.log(addOne.count)
+// console.log(window.count)
+
+function f4() {
+  console.log(this.a)
 }
+let obj1 = {
+  a: 1,
+  f4: f4
+}
+let obj2 = {
+  a: 2,
+  obj1
+}
+let obj3 = {
+  a: 3,
+  f4: obj1.f4
+}
+
+obj1.f4() // value is 1
+obj2.obj1.f4() // value is 1
+obj3.f4() // value is 3
