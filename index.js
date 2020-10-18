@@ -421,22 +421,69 @@
 // console.log(addOne.count)
 // console.log(window.count)
 
-function f4() {
-  console.log(this.a)
-}
-let obj1 = {
-  a: 1,
-  f4: f4
-}
-let obj2 = {
-  a: 2,
-  obj1
-}
-let obj3 = {
-  a: 3,
-  f4: obj1.f4
+// function f4() {
+//   console.log(this.a)
+// }
+// let obj1 = {
+//   a: 1,
+//   f4: f4
+// }
+// let obj2 = {
+//   a: 2,
+//   obj1
+// }
+// let obj3 = {
+//   a: 3,
+//   f4: obj1.f4
+// }
+
+// obj1.f4() // value is 1
+// obj2.obj1.f4() // value is 1
+// obj3.f4() // value is 3
+
+// 7.arrow function
+// obj1 = { a: 1 }
+
+// let f5 = () => {
+//   console.log(this)
+// }
+
+// f5() // window
+// f5.call(obj1) // window
+
+// function f6() {
+//   // f6.call(obj1) means the context HERE is obj1
+//   return () => {
+//     console.log(this.a)
+//   }
+// }
+
+// let x = f6.call(obj1)
+// x()
+
+// Arrow functions cannot be used as constructors
+
+// lexical scoping
+var value = 1
+
+function foo() {
+  console.log(value)
 }
 
-obj1.f4() // value is 1
-obj2.obj1.f4() // value is 1
-obj3.f4() // value is 3
+function bar() {
+  var value = 2
+  foo()
+}
+
+bar()
+
+var scope = "global scope";
+function checkscope() {
+  var scope = "local scope";
+  function f() {
+    return scope;
+  }
+  return f();
+}
+
+console.log(checkscope())
