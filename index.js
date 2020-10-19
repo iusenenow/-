@@ -464,26 +464,48 @@
 // Arrow functions cannot be used as constructors
 
 // lexical scoping
-var value = 1
+// var value = 1
 
-function foo() {
-  console.log(value)
+// function foo() {
+//   console.log(value)
+// }
+
+// function bar() {
+//   var value = 2
+//   foo()
+// }
+
+// bar()
+
+// var scope = "global scope";
+// function checkscope() {
+//   var scope = "local scope";
+//   function f() {
+//     return scope;
+//   }
+//   return f();
+// }
+
+// console.log(checkscope())
+
+// Lexical Environments
+/* 1. {this} block-scope
+   2. Global Scope
+   3. Function Scope: function f() { this; }
+
+Execution Context
+1. Lexical Environment {scope}
+2. Variable Environment
+3. this binding
+*/
+
+this.a = "Global Scope"
+
+var obj = {
+  a: 1,
+  b: function () { console.log(this.a); }
 }
 
-function bar() {
-  var value = 2
-  foo()
-}
-
-bar()
-
-var scope = "global scope";
-function checkscope() {
-  var scope = "local scope";
-  function f() {
-    return scope;
-  }
-  return f();
-}
-
-console.log(checkscope())
+obj.b()
+var m = obj.b
+m()
