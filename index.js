@@ -499,13 +499,62 @@ Execution Context
 3. this binding
 */
 
-this.a = "Global Scope"
+// this.a = "Global Scope"
 
-var obj = {
-  a: 1,
-  b: function () { console.log(this.a); }
-}
+// var obj = {
+//   a: 1,
+//   b: function () { console.log(this.a); }
+// }
 
-obj.b()
-var m = obj.b
-m()
+// obj.b()
+// var m = obj.b
+// m()
+
+// var f = "grapes"
+
+// function food() {
+//   console.log(f);
+
+//   var f = "sushi"
+
+//   console.log(f);
+
+// }
+
+// food() // undefined, suhi
+
+// function bigBrother() {
+//   function littleBrother() {
+//     return 'it is me!';
+//   }
+//   return littleBrother();
+//   function littleBrother() {
+//     return 'no me!';
+//   }
+// }
+
+// console.log(bigBrother()) // no me!
+
+// var heyhey = function doodle() {
+//   return 'heyhey'
+// }
+
+// console.log(heyhey())
+// // console.log(doodle()) // not defined
+
+// function x() {
+//   height = 100
+//   return height
+// }
+
+// console.log(x());
+
+// shallow cloning
+let obj = { a: 'a', b: 'b', c: { deep: 'try and copy me' } }
+let clone = Object.assign({}, obj)
+let clone2 = { ...obj }
+
+obj.c.deep = 'omg, help me'
+console.log(obj);
+console.log(clone)
+console.log(clone2)
