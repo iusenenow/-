@@ -550,11 +550,52 @@ Execution Context
 // console.log(x());
 
 // shallow cloning
-let obj = { a: 'a', b: 'b', c: { deep: 'try and copy me' } }
-let clone = Object.assign({}, obj)
-let clone2 = { ...obj }
+// let obj = { a: 'a', b: 'b', c: { deep: 'try and copy me' } }
+// let clone = Object.assign({}, obj)
+// let clone2 = { ...obj }
+// let superclone = JSON.parse(JSON.stringify(obj))
 
-obj.c.deep = 'omg, help me'
-console.log(obj);
-console.log(clone)
-console.log(clone2)
+// obj.b = 'big ben'
+// obj.c.deep = 'omg, help me'
+// console.log(obj);
+// console.log(clone) // shallow copy
+// console.log(clone2) // shallow copy
+// console.log(superclone); // deep clone
+
+// conversion & coercion: 
+// coercion: when the type is converted by JavaScript
+// conversion: when coder sets the data type
+// let myStr = "100"
+// let myNum = 100
+// myStr = myStr + myNum
+// coercion
+// myStr = Number(myStr)
+// console.log(myStr);
+// console.log(typeof (myStr));
+// console.log(typeof (myNum));
+
+// HOF
+// const multiplyBy = function (num1) {
+//   return function (num2) {
+//     return num1 * num2
+//   }
+// }
+// const multiplyBy = num1 => num2 => num1 * num2
+
+// console.log(multiplyBy(7)(9))
+
+// const multiplyByTwo = multiplyBy(2)
+// const multiplyBySeven = multiplyBy(7)
+
+// console.log(multiplyByTwo(4))
+// console.log(multiplyByTwo(9))
+// console.log(multiplyBySeven(4))
+
+// Closure
+function heavyDuty(index) {
+  const bigArray = new Array(700).fill('Hello')
+  console.log(bigArray);
+  return bigArray[index]
+}
+
+console.log(heavyDuty(400)); 
