@@ -591,11 +591,64 @@ Execution Context
 // console.log(multiplyByTwo(9))
 // console.log(multiplyBySeven(4))
 
-// Closure
-function heavyDuty(index) {
-  const bigArray = new Array(700).fill('Hello')
-  console.log(bigArray);
-  return bigArray[index]
-}
+// Closure:
+// 1.Memory Efficient
+// function heavyDuty() {
+//   const bigArray = new Array(700).fill('Hello')
+//   return function (index) {
+//     return bigArray[index]
+//   }
+// }
 
-console.log(heavyDuty(400)); 
+// const getHeavyDuty = heavyDuty()
+// console.log(getHeavyDuty(500))
+
+// 2.Encapsulation
+// let view
+// function initialize() {
+//   let called = 0
+//   return function () {
+//     if (called > 0) {
+//       return
+//     } else {
+//       view = 'Mountain'
+//       called++
+//       console.log('View has been set!');
+//     }
+//   }
+// }
+
+// const startOne = initialize()
+// startOne()
+// console.log(view);
+
+// 九九乘法表: row循环负责换行，column循环负责输出 *
+// for (var row = 1; row < 10; row++) {
+//   for (var column = 1; column <= row; column++) {
+//     document.write("omg")
+//   }
+//   document.write("<br />")
+// }
+
+// document.write("<table>")
+// for (var row = 1; row < 10; row++) {
+//   document.write("<tr>")
+//   for (var column = 1; column <= row; column++) {
+//     document.write("<td>" + column + " x " + row + " = " + column * row + "</td>")
+//   }
+//   document.write("</tr>")
+// }
+// document.write("</table>")
+
+document.write("<table>")
+for (var row = 1; row < 10; row++) {
+  document.write("<tr>")
+  for (var blank = 9 - row; blank > 0; blank--) {
+    document.write("<td></td>")
+  }
+  for (var column = row; column > 0; column--) {
+    document.write("<td>" + row + " x " + column + " = " + column * row + "</td>")
+  }
+  document.write("</tr>")
+}
+document.write("</table>")
