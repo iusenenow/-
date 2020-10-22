@@ -625,7 +625,7 @@ Execution Context
 // 九九乘法表: row循环负责换行，column循环负责输出 *
 // for (var row = 1; row < 10; row++) {
 //   for (var column = 1; column <= row; column++) {
-//     document.write("omg")
+//     document.write("😞")
 //   }
 //   document.write("<br />")
 // }
@@ -640,15 +640,37 @@ Execution Context
 // }
 // document.write("</table>")
 
-document.write("<table>")
-for (var row = 1; row < 10; row++) {
-  document.write("<tr>")
-  for (var blank = 9 - row; blank > 0; blank--) {
-    document.write("<td></td>")
-  }
-  for (var column = row; column > 0; column--) {
-    document.write("<td>" + row + " x " + column + " = " + column * row + "</td>")
-  }
-  document.write("</tr>")
-}
-document.write("</table>")
+// document.write("<table>")
+// for (var row = 1; row < 10; row++) {
+//   document.write("<tr>")
+//   for (var blank = 9 - row; blank > 0; blank--) {
+//     document.write("<td></td>")
+//   }
+//   for (var column = row; column > 0; column--) {
+//     document.write("<td>" + row + " x " + column + " = " + column * row + "</td>")
+//   }
+//   document.write("</tr>")
+// }
+// document.write("</table>")
+
+// 加法运算
+// 1.数值+数值
+// 88 + NaN = NaN
+// Infinity + -Infinity = NaN
+// Infinity + Infinity = Infinity
+// -Infinity + -Infinity = -Infinity
+
+// 2.数值+数值
+// +0 + +0 = +0
+// -0 + -0 = -0
+// +0 + -0 = +0
+
+// 3.字符串+字符串
+// "Hello " + "World" = "Hello World"
+
+// 4.String + Number
+// 只要有一个String，结果就是String
+// "10" + 10.10 = "1010.1"
+// "1" + 2 + 3 + 4 = "1234"
+// 1 + 2 + 3 + "4" = "64"
+// 1 + (2 + "3") + 4 
