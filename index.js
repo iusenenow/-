@@ -673,4 +673,78 @@ Execution Context
 // "10" + 10.10 = "1010.1"
 // "1" + 2 + 3 + 4 = "1234"
 // 1 + 2 + 3 + "4" = "64"
-// 1 + (2 + "3") + 4 
+// 1 + (2 + "3") + 4
+
+// Prototype
+// hasOwnProperty()
+// isPrototypeOf()
+// Object.create()method creates a new object, using an
+// existing object as the prototype of the newly created object.
+
+// const person = {
+//   isHuman: false,
+//   sayHi() {
+//     console.log(`My name is ${this.name}. Am I human? ${this.isHuman}.`)
+//   }
+// }
+
+// const me = Object.create(person)
+
+// me.name = "Wei"
+// me.isHuman = true
+
+// me.sayHi()
+// console.log(person.isPrototypeOf(me));
+
+// #1
+// Date Object => to have new method .lastYear() which shows you
+// last year 'YYYY' format.
+
+Date.prototype.lastYear = function () {
+  return this.getFullYear() - 1
+}
+
+const lastYear = new Date().lastYear()
+console.log(lastYear);
+
+// #2
+// Modify .map() to print '😝' at the end of each item.
+Array.prototype.map = function () {
+  let arr = []
+  for (let i = 0; i < this.length; i++) {
+    arr.push((this[i] + '😆'))
+  }
+  return arr
+}
+console.log([1, 2, 3].map())
+// 1😆, 2😆, 3😆
+
+// #3
+var A = function () {
+
+}
+A.prototype.n = 1
+
+var b = new A()
+
+A.prototype = {
+  n: 2,
+  m: 3
+}
+
+var c = new A()
+console.log(b.n, b.m, c.n, c.m)
+
+// #4
+var F = function () { };
+Object.prototype.a = function () {
+  console.log('a()')
+};
+Function.prototype.b = function () {
+  console.log('b()')
+};
+var f = new F();
+f.a()
+f.b()
+F.a()
+F.b()
