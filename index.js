@@ -622,6 +622,25 @@ Execution Context
 // startOne()
 // console.log(view);
 
+// Closure经典面试题
+// for (var i = 0; i < 5; i++) {
+//   setTimeout(function () {
+//     console.log(i++)
+//   }, 2000)
+// }
+// console.log(i)  // 5
+// 5, 5, 6, 7, 8, 9
+
+// for (var i = 0; i < 5; i++) {
+//   (function (x) {
+//     setTimeout(function () {
+//       console.log(x++)
+//     }, 2000)
+//   })(i)
+// }
+// console.log(i) // 5
+// 5, 0, 1, 2, 3, 4
+
 // 九九乘法表: row循环负责换行，column循环负责输出 *
 // for (var row = 1; row < 10; row++) {
 //   for (var column = 1; column <= row; column++) {
@@ -653,6 +672,34 @@ Execution Context
 // }
 // document.write("</table>")
 
+// 函数作用域面试题
+// var b = "boy"
+// console.log(b) // 'boy'
+// function fighting() {
+//   console.log(a); // undefined
+//   console.log(c); // undefined
+//   if (a === 'apple') { a = "Alice" }
+//   else { a = "Ada" }
+//   console.log(a); // 'Ada'
+//   var a = 'Andy'
+//   middle()
+//   function middle() {
+//     console.log(c++); // NaN
+//     var c = 100
+//     console.log(++c); // 101
+//     small()
+//     function small() { console.log(a) } // 'Andy'
+//   }
+//   var c = a = 88
+//   function bottom() {
+//     console.log(this.b); // 'boy'
+//     b = 'baby'
+//     console.log(b); // 'baby'
+//   }
+//   bottom()
+// }
+// fighting()
+// console.log(b); // 'baby'
 // 加法运算
 // 1.数值+数值
 // 88 + NaN = NaN
@@ -674,6 +721,50 @@ Execution Context
 // "1" + 2 + 3 + 4 = "1234"
 // 1 + 2 + 3 + "4" = "64"
 // 1 + (2 + "3") + 4
+
+// 5.String + Array
+// "1" + [] = "1" + "" = "1"
+// "1" + [123] = "1" + "123" = "1123"
+// "1" + [,,,] = "1,,"
+// "1" + [123, 456, 789, 'aaa'] = "1123,456,789,aaa"
+
+// 6.String + Function
+// "1" + function u(){var a = 1} = "1function u(){var a = 1}"
+
+// 7.String + Object
+// Object has a method: toString(), it automaticaly call this method when concatenate with string.
+// ({}).toString() => [object Object]
+// ({a: 1}).toString() => [object Object]
+// "1" + {} = "1[object Object]"
+// "1" + {a: 1} = "1[object Object]"
+
+// 8.Number + Boolean
+// 11 + true = 11 + 1 = 12
+// 11 + false = 11 + 0 = 11
+
+// 9.Number + ?
+// [] + 1 = "1"
+// [123] + 1 = "1231"
+// [123, 456, 789] + 1 = "123,456,7891"
+// [, 2, ,] + 1 = ",2,1"
+// [12, 12] + fucntion(){var a=0} = "12,12function(){var a=0}"
+// [] + fucntion(){var a=0} = "function(){var a=0}"
+// [12, 12] + {} = "12,12[object Object]"
+// [12, 12]+{a:1} = "12,12[object Object]"
+
+// 10.Array, Function & Object
+// [1] + [2] = "12"
+// [] + [1, 2, 3] = "1,2,3"
+// ({}) + ({}) = "[object Object][object Object]"
+// ({}) + ({a: 1}) = "[object Object][object Object]"
+// function a(){var a=0} + function b(){var b=0} = "function a(){var a=0}function b(){var b=0}"
+
+// 运算是从左往右的
+// [] + {} => "" + "[object Object]" => "[object Object]"
+// {} + [] => 0
+// ({}) + [] => "[object Object]"
+// (function a(){var aa = 0}) + {} => "function a(){var aa = 0}[object Object]"
+// [1, 2] + (function a(){var aa = 0}) => "1,2(function a(){var aa = 0}"
 
 // Prototype
 // hasOwnProperty()
@@ -700,51 +791,51 @@ Execution Context
 // Date Object => to have new method .lastYear() which shows you
 // last year 'YYYY' format.
 
-Date.prototype.lastYear = function () {
-  return this.getFullYear() - 1
-}
+// Date.prototype.lastYear = function () {
+//   return this.getFullYear() - 1
+// }
 
-const lastYear = new Date().lastYear()
-console.log(lastYear);
+// const lastYear = new Date().lastYear()
+// console.log(lastYear);
 
 // #2
 // Modify .map() to print '😝' at the end of each item.
-Array.prototype.map = function () {
-  let arr = []
-  for (let i = 0; i < this.length; i++) {
-    arr.push((this[i] + '😆'))
-  }
-  return arr
-}
-console.log([1, 2, 3].map())
-// 1😆, 2😆, 3😆
+// Array.prototype.map = function () {
+//   let arr = []
+//   for (let i = 0; i < this.length; i++) {
+//     arr.push((this[i] + '😆'))
+//   }
+//   return arr
+// }
+// console.log([1, 2, 3].map())
+// // 1😆, 2😆, 3😆
 
-// #3
-var A = function () {
+// // #3
+// var A = function () {
 
-}
-A.prototype.n = 1
+// }
+// A.prototype.n = 1
 
-var b = new A()
+// var b = new A()
 
-A.prototype = {
-  n: 2,
-  m: 3
-}
+// A.prototype = {
+//   n: 2,
+//   m: 3
+// }
 
-var c = new A()
-console.log(b.n, b.m, c.n, c.m)
+// var c = new A()
+// console.log(b.n, b.m, c.n, c.m)
 
-// #4
-var F = function () { };
-Object.prototype.a = function () {
-  console.log('a()')
-};
-Function.prototype.b = function () {
-  console.log('b()')
-};
-var f = new F();
-f.a()
-f.b()
-F.a()
-F.b()
+// // #4
+// var F = function () { };
+// Object.prototype.a = function () {
+//   console.log('a()')
+// };
+// Function.prototype.b = function () {
+//   console.log('b()')
+// };
+// var f = new F();
+// f.a()
+// f.b()
+// F.a()
+// F.b()
