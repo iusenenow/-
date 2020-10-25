@@ -839,3 +839,44 @@ Execution Context
 // f.b()
 // F.a()
 // F.b()
+
+// 文档解析完（window.onload) document.write() 放在<body> Tag里最后，会overwrite其他内容，
+// 放在<body> Tag第一行就不会覆盖，放在<head>里也不会，放在内容中也不会。
+// window.onload = function () {
+//   document.write("<h1>大家好，我是张宸溪！</h1>")
+//   document.write("<h1>大家好，我是张伟！</h1>")
+// }
+
+// 对调两个变量的方法
+// 1.临时变量法：
+// var a = 3, b = 5, c = b
+// b = a
+// a = c
+// console.log(a, b);
+// 2.加减法
+// var a = 3, b = 5
+// a = a + b
+// b = a - b
+// a = a - b
+// 3.数组法
+// var a = 3, b = 5
+// a = [a, b]
+// b = a[0]
+// a = a[1]
+// 4.对象法
+// var a = 3, b = 5
+// a = { a: b, b: a }
+// b = a.b
+// a = a.a
+// 5.数组运算法
+// var a = 3, b = 5
+// a = [b, b = a][0]
+// 6.按位异或法
+// var a = 3, b = 5
+// a = a ^ b
+// b = b ^ a
+// a = a ^ b
+// 7.解构赋值法(doesn't seem to work)
+// var a = 3, b = 5
+// [a, b] = [b, a]
+// console.log(a, b);
