@@ -880,3 +880,20 @@ Execution Context
 // var a = 3, b = 5
 // [a, b] = [b, a]
 // console.log(a, b);
+
+// 二分法寻找数组元素
+var arr = [3, 48, 66, 71, 99, 101, 120, 151, 188, 209]
+
+function searching(target) {
+   var start = 0,
+      end = arr.length - 1,
+      middle,
+      element
+   while (start <= end) {
+      middle = Math.floor((start + end) / 2)
+      element = arr[middle]
+      if (element === target) { return middle }
+      else if (target < element) { end = middle - 1 }
+      else { start = middle + 1 }
+   } return -1
+}
