@@ -882,18 +882,34 @@ Execution Context
 // console.log(a, b);
 
 // 二分法寻找数组元素
-var arr = [3, 48, 66, 71, 99, 101, 120, 151, 188, 209]
+// var arr = [3, 48, 66, 71, 99, 101, 120, 151, 188, 209]
 
-function searching(target) {
-   var start = 0,
-      end = arr.length - 1,
-      middle,
-      element
-   while (start <= end) {
-      middle = Math.floor((start + end) / 2)
-      element = arr[middle]
-      if (element === target) { return middle }
-      else if (target < element) { end = middle - 1 }
-      else { start = middle + 1 }
-   } return -1
+// function searching(target) {
+//    var start = 0,
+//       end = arr.length - 1,
+//       middle,
+//       element
+//    while (start <= end) {
+//       middle = Math.floor((start + end) / 2)
+//       element = arr[middle]
+//       if (element === target) { return middle }
+//       else if (target < element) { end = middle - 1 }
+//       else { start = middle + 1 }
+//    } return -1
+// }
+
+// 打乱数组内元素顺序
+let students = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+function random(students) {
+   let length = students.length, index, temp
+
+   for (let point = length - 1; point >= 0; point--) {
+      index = Math.floor(Math.random() * point)
+      temp = students[index]
+      students[index] = students[point]
+      students[point] = temp
+   }
+
+   return students
 }
