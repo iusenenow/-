@@ -5,14 +5,38 @@
 
 */
 // dom对象
-const div = document.getElementsByTagName('div')[0]
+// const div = document.getElementsByTagName('div')[0]
+// div.style.width = "100px"
+// div.style.height = "100px"
+// div.style.backgroundColor = "red"
+
+// let count = 0
+
+// div.onclick = function () {
+//   count++
+//   count % 2 === 1 ? this.style.backgroundColor = 'green' : this.style.backgroundColor = 'red'
+// }
+
+// 变加速运动的小方块
+const div = document.createElement('div')
+
+document.body.appendChild(div)
 div.style.width = "100px"
 div.style.height = "100px"
-div.style.backgroundColor = "red"
+div.style.backgroundColor = "coral"
+div.style.position = "absolute"
+div.style.left = "0"
+div.style.top = "0"
 
-let count = 0
+let speed = 1
 
-div.onclick = function () {
-  count++
-  count % 2 === 1 ? this.style.backgroundColor = 'green' : this.style.backgroundColor = 'red'
-}
+let timer = setInterval(function () {
+
+  speed += speed / 10
+  div.style.left = parseInt(div.style.left) + speed + "px"
+  div.style.top = parseInt(div.style.top) + speed + "px"
+
+  if (parseInt(div.style.top) > 800 && parseInt(div.style.left) > 800) {
+    clearInterval(timer)
+  }
+}, 50)

@@ -6,23 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    table {
-      width: 100%;
+    .wrapper div {
+      display: none;
+      width: 200px;
+      height: 200px;
+      border: 2px solid red;
     }
 
-    tr,
-    td {
-      border: 2px solid #000;
-      padding: 4px 8px;
-      height: 40px;
-      text-align: center;
+    div.active {
+      display: block;
     }
   </style>
 </head>
 
 <body>
-  <h1>Hello World!</h1>
-  <div></div>
+
   <script src="index.js"></script>
   <script src="dom.js"></script>
 </body>
