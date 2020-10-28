@@ -898,7 +898,7 @@ Execution Context
 //    } return -1
 // }
 
-// 打乱数组内元素顺序
+// 打乱数组内元素顺序: Fisher-Yates shuffle
 let students = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 function random(students) {
@@ -913,3 +913,10 @@ function random(students) {
 
    return students
 }
+
+// ["1","2","3"].map(parseInt) =>
+// ["1","2","3"].map(function(item, index, array){ return parseInt(item, index, array)}) =>
+// parseInt("1", 0) => 1 十进制
+// parseInt("2", 1) => NaN 不在2-36之间
+// parseInt("3", 2) => NaN 二进制，识别不了3，返回NaN
+// [1, NaN, NaN]
