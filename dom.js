@@ -64,42 +64,42 @@ document代表整个文档
 // a.textContent = "Google"
 
 // Access Elements in the DOM
-const demoId = document.getElementById("demo")
-demoId.style.border = "7px solid coral"
+// const demoId = document.getElementById("demo")
+// demoId.style.border = "7px solid coral"
 
-const demoClass = document.getElementsByClassName("demo")
+// const demoClass = document.getElementsByClassName("demo")
 
-console.log(demoClass) // HTMLCollection
+// console.log(demoClass) // HTMLCollection
 
-// for (i = 0; i < demoClass.length; i++) {
-//   demoClass[i].style.border = "7px solid coral"
-// }
+// // for (i = 0; i < demoClass.length; i++) {
+// //   demoClass[i].style.border = "7px solid coral"
+// // }
 
-Array.from(demoClass).forEach(elem => { elem.style.border = "7px solid lightblue" })
+// Array.from(demoClass).forEach(elem => { elem.style.border = "7px solid lightblue" })
 
-const demoTag = document.getElementsByTagName("article")
+// const demoTag = document.getElementsByTagName("article")
 
-console.log(demoTag); // HTMLCollection
+// console.log(demoTag); // HTMLCollection
 
 // for (i = 0; i < demoTag.length; i++) {
 //   demoTag[i].style.border = "7px solid lightgreen"
 // }
 
-Array.from(demoTag).forEach(demo => demo.style.border = "7px solid lightgreen")
+// Array.from(demoTag).forEach(demo => demo.style.border = "7px solid lightgreen")
 
-const demoQuery = document.querySelector("#demo-query")
+// const demoQuery = document.querySelector("#demo-query")
 
-demoQuery.style.border = "7px solid crimson"
+// demoQuery.style.border = "7px solid crimson"
 
-const demoQueryAll = document.querySelectorAll(".demo-query-all")
+// const demoQueryAll = document.querySelectorAll(".demo-query-all")
 
-console.log(demoQueryAll); // NodeList
+// console.log(demoQueryAll); // NodeList
 
-demoQueryAll.forEach(demo => demo.style.border = "7px solid pink")
+// demoQueryAll.forEach(demo => demo.style.border = "7px solid pink")
 
-for (let element of demoQueryAll) {
-  element.style.border = "7px solid red"
-}
+// for (let element of demoQueryAll) {
+//   element.style.border = "7px solid red"
+// }
 
 // Traverse the DOM:
 /*
@@ -138,7 +138,45 @@ createElement()	    Create a new element node
 createTextNode()	  Create a new text node
 node.textContent	  Get or set the text content of an element node
 node.innerHTML	    Get or set the HTML content of an element
-
-Inserting Nodes into the DOM
-
 */
+
+// const paragraph = document.createElement("p")
+
+// paragraph.textContent = "I'm a brand new paragraph."
+
+// Alternate method: innerHTML
+// While this will work and is a common method of adding content to an element, there is a possible cross-site scripting (XSS) risk associated with using the innerHTML method, as inline JavaScript can be added to an element. Therefore, it is recommended to use textContent instead, which will strip out HTML tags.
+
+// console.log(paragraph);
+
+// const text = document.createTextNode("I'm a new text node.")
+
+// console.log(text);
+
+// Inserting Nodes into the DOM
+/*
+Property/Method	        Description
+node.appendChild()	    Add a node as the last child of a parent element
+node.insertBefore(newNode, nextSibling)	    Insert a node into the parent element before specified sibling node
+node.replaceChild(newNode, oldNode)	    Replace an existing node with a new node
+*/
+
+/*
+Removing Nodes from the DOM
+Method	              Description
+node.removeChild()	  Remove child node
+node.remove()	        Remove node
+*/
+
+const link = document.querySelector('a')
+const message = document.querySelector('.error')
+
+console.log(link.getAttribute('href'));
+link.setAttribute('href', 'https://www.thenetninja.co.uk')
+link.setAttribute('style', 'text-decoration:none;color:#fff;background-color:coral;font-size:2rem')
+link.innerText = 'The Net Ninja Website'
+
+console.log(message.getAttribute('class'))
+
+message.setAttribute('class', 'success')
+message.setAttribute('style', 'font-size:1rem;text-align:center')
