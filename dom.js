@@ -168,15 +168,83 @@ node.removeChild()	  Remove child node
 node.remove()	        Remove node
 */
 
-const link = document.querySelector('a')
-const message = document.querySelector('.error')
+// const link = document.querySelector('a')
+// const message = document.querySelector('.error')
 
-console.log(link.getAttribute('href'));
-link.setAttribute('href', 'https://www.thenetninja.co.uk')
-link.setAttribute('style', 'text-decoration:none;color:#fff;background-color:coral;font-size:2rem')
-link.innerText = 'The Net Ninja Website'
+// console.log(link.getAttribute('href'));
+// link.setAttribute('href', 'https://www.thenetninja.co.uk')
+// link.setAttribute('style', 'text-decoration:none;color:#fff;background-color:coral;font-size:2rem')
+// link.innerText = 'The Net Ninja Website'
 
-console.log(message.getAttribute('class'))
+// console.log(message.getAttribute('class'))
 
-message.setAttribute('class', 'success')
-message.setAttribute('style', 'font-size:1rem;text-align:center')
+// message.setAttribute('class', 'success')
+// message.setAttribute('style', 'font-size:1rem;text-align:center')
+
+// message.style.margin = '50px'
+// message.style.color = 'crimson'
+// message.style.fontSize = '2rem'
+
+// message.classList.add('omg')
+// message.classList.remove('success')
+// message.classList.toggle('success')
+
+/*
+Event Handlers and Event Listeners
+*/
+
+// Inline Event Handler: Inline event handlers are a simple and straightforward way to begin understanding events, but they generally should not be used beyond testing and educational purposes.
+// Function to modify the text content of the paragraph
+const button = document.querySelector('button')
+const p = document.querySelector('p')
+
+const changeText = () => {
+  p.textContent = "I changed because of an inline event handler."
+}
+
+const alertText = () => {
+  alert('Will I alert?')
+}
+// Add event handler as a property of the button element
+// button.onclick = changeText
+// button.onclick = alertText // Events can be overwritten
+// assign the function reference: when passing a function reference to the onclick property, we do not include parentheses, as we are not invoking the function in that moment, but only passing a reference to it.
+
+// Listen for click event
+button.addEventListener('click', changeText)
+button.addEventListener('click', alertText)
+
+// a click event was referred to as onclick, but with event listeners it is referred to as click. Every event listener drops the on from the word.
+
+// Remove alert function from button element
+button.removeEventListener('click', alertText)
+
+document.addEventListener('keydown', e => {
+  console.log(e);
+  console.log('keyCode: ' + e.keyCode);
+  console.log('key: ' + e.key);
+  console.log('code: ' + e.code);
+})
+
+document.addEventListener('keydown', e => {
+  switch (e.key) {
+    case "a":
+      p.textContent = "左"
+      break
+    case "s":
+      p.textContent = "下"
+      break
+    case "d":
+      p.textContent = "右"
+      break
+    case "w":
+      p.textContent = "上"
+      break
+  }
+})
+
+const section = document.querySelector('section')
+
+section.addEventListener('click', function (e) {
+  console.log(e.target);
+})
