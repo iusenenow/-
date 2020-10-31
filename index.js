@@ -523,17 +523,6 @@ Execution Context
 
 // food() // undefined, suhi
 
-// function bigBrother() {
-//   function littleBrother() {
-//     return 'it is me!';
-//   }
-//   return littleBrother();
-//   function littleBrother() {
-//     return 'no me!';
-//   }
-// }
-
-// console.log(bigBrother()) // no me!
 
 // var heyhey = function doodle() {
 //   return 'heyhey'
@@ -541,26 +530,6 @@ Execution Context
 
 // console.log(heyhey())
 // // console.log(doodle()) // not defined
-
-// function x() {
-//   height = 100
-//   return height
-// }
-
-// console.log(x());
-
-// shallow cloning
-// let obj = { a: 'a', b: 'b', c: { deep: 'try and copy me' } }
-// let clone = Object.assign({}, obj)
-// let clone2 = { ...obj }
-// let superclone = JSON.parse(JSON.stringify(obj))
-
-// obj.b = 'big ben'
-// obj.c.deep = 'omg, help me'
-// console.log(obj);
-// console.log(clone) // shallow copy
-// console.log(clone2) // shallow copy
-// console.log(superclone); // deep clone
 
 // conversion & coercion: 
 // coercion: when the type is converted by JavaScript

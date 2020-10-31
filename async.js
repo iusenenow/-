@@ -29,14 +29,14 @@
 //   .catch(error => console.error(error))
 
 // Async & Await
-const getUser = async () => {
-  try {
-    const response = await fetch('https://api.github.com/users/iusenenow')
-    const data = await response.json()
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
+// const getUser = async () => {
+//   try {
+//     const response = await fetch('https://api.github.com/users/iusenenow')
+//     const data = await response.json()
+//     console.log(data);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
-getUser()
+// getUser()
