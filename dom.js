@@ -211,40 +211,40 @@ const alertText = () => {
 // assign the function reference: when passing a function reference to the onclick property, we do not include parentheses, as we are not invoking the function in that moment, but only passing a reference to it.
 
 // Listen for click event
-button.addEventListener('click', changeText)
-button.addEventListener('click', alertText)
+// button.addEventListener('click', changeText)
+// button.addEventListener('click', alertText)
 
 // a click event was referred to as onclick, but with event listeners it is referred to as click. Every event listener drops the on from the word.
 
 // Remove alert function from button element
-button.removeEventListener('click', alertText)
+// button.removeEventListener('click', alertText)
 
-document.addEventListener('keydown', e => {
-  console.log(e);
-  console.log('keyCode: ' + e.keyCode);
-  console.log('key: ' + e.key);
-  console.log('code: ' + e.code);
-})
+// document.addEventListener('keydown', e => {
+//   console.log(e);
+//   console.log('keyCode: ' + e.keyCode);
+//   console.log('key: ' + e.key);
+//   console.log('code: ' + e.code);
+// })
 
-document.addEventListener('keydown', e => {
-  switch (e.key) {
-    case "a":
-      p.textContent = "左"
-      break
-    case "s":
-      p.textContent = "下"
-      break
-    case "d":
-      p.textContent = "右"
-      break
-    case "w":
-      p.textContent = "上"
-      break
-  }
-})
+// document.addEventListener('keydown', e => {
+//   switch (e.key) {
+//     case "a":
+//       p.textContent = "左"
+//       break
+//     case "s":
+//       p.textContent = "下"
+//       break
+//     case "d":
+//       p.textContent = "右"
+//       break
+//     case "w":
+//       p.textContent = "上"
+//       break
+//   }
+// })
 
-const section = document.querySelector('section')
+// const section = document.querySelector('section')
 
-section.addEventListener('click', function (e) {
-  console.log(e.target);
-})
+// section.addEventListener('click', function (e) {
+//   console.log(e.target);
+// })
