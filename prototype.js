@@ -91,24 +91,92 @@ let car2 = new Car('blue', 'wei')
 // const father = new Father()
 
 // 4.圣杯模式
-function inherit(Target, Origin) {
-  function middleFunction() { } // 中间函数
-  middleFunction.prototype = Origin.prototype
-  Target.prototype = new middleFunction()
-  Target.prototype.constructor = Target
-  Target.prototype.uber = Origin.prototype
+// function inherit(Target, Origin) {
+//   function middleFunction() { } // 中间函数
+//   middleFunction.prototype = Origin.prototype
+//   Target.prototype = new middleFunction()
+//   Target.prototype.constructor = Target
+//   Target.prototype.uber = Origin.prototype
+// }
+
+// 上面的function的高端写法：
+// const inherit2 = (function () {
+//   const middleFunction = function () { }
+//   return function (Target, Origin) {
+//     middleFunction.prototype = Origin.prototype
+//     Target.prototype = new middleFunction()
+//     Target.prototype.constructor = Target
+//     Target.prototype.uber = Origin.prototype
+//   }
+// })()
+
+// Father.prototype.lastName = "Zhang"
+// function Father() { }
+// function Son() { }
+
+// inherit2(Father, Son)
+// const son = new Son()
+// const father = new Father()
+
+//Son.prototype.firstName = "Wei" // Father不继承Son的prototype
+//console.log(son.firstName, father.firstName); // Wei undefined
+
+//方法的连续调用
+const deng = {
+  smoke() {
+    console.log("Smoking");
+    return this
+  },
+  drink() {
+    console.log("drinking");
+    return this
+  },
+  gamble() {
+    console.log("gambling");
+    return this
+  }
 }
 
-Father.prototype.lastName = "Zhang"
-function Father() { }
-function Son() { }
+//对象的枚举（遍历）
+// 1.for in
+// const obj = {
+//   name: "Wei",
+//   age: 36,
+//   sex: "male",
+//   height: 190,
+//   weight: 60,
+//   __proto__: {
+//     lastName: "Zhang"
+//   }
+// }
 
-inherit(Son, Father)
-const son = new Son()
-const father = new Father()
+// Object.prototype.abc = "123"
 
-Son.prototype.firstName = "Wei" // Father不继承Son的prototype
-console.log(son.firstName, father.firstName); // Wei undefined
+// for (let key in obj) {
+//   console.log(key, obj[key]);
+// }
+
+// 2.obj.hasOwnProperty()
+// for (let key in obj) {
+//   if (obj.hasOwnProperty(key)) {
+//     console.log(obj[key]);
+//   }
+// }
+
+// 3.in
+// console.log('height' in obj)
+// console.log('lastName' in obj)
+
+// 4.instanceof
+// A instanceof B => A对象是不是B构造函数构造出来的，看A对象的原型链上有没有B的原型
+
+// 区别Array和Object的方法
+// 1.contructor
+// 2.instanceof
+// 3.tostring.call()
+// Object.prototype.toString.call([]) //"[object Array]"
+// Object.prototype.toString.call(123) //"[object Number]"
+// Object.prototype.toString.call({}) //"[object Object]"
 
 // Shallow Cloning
 // let obj = { a: 'a', b: 'b', c: { deep: 'try and copy me' } }
