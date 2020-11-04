@@ -228,20 +228,13 @@ function deepClone(origin, target = {}) {
   for (let key in origin) {
     if (origin.hasOwnProperty(key)) {
       if (origin[key] !== "null" && typeof (origin[key]) === 'object') {
-        if (toStr.call(origin[key]) === arrStr) {
-          target[key] = []
-        } else {
-          target[key] = {}
-        }
-
+        target[key] = toStr.call(origin[key]) === arrStr ? [] : {}
         deepClone(origin[key], target[key])
-
       } else {
         target[key] = origin[key]
       }
     }
   }
-
   return target
 }
 
