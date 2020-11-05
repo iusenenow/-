@@ -48,6 +48,7 @@
 //   "0": "a",
 //   "1": "b",
 //   "2": "c",
+//   "name": "abc",
 //   "length": 3,
 //   "push": Array.prototype.push,
 //   "splice": Array.prototype.splice
@@ -63,6 +64,27 @@
 //   this.lenght++
 // }
 
+// Empty an array
+// let numbers = [1, 2, 3, 4]
+// let another = numbers
+
+// Solution 1
+// numbers = [] // If you have single referrence to the array
+// Solution 2
+// numbers.length = 0
+// Solution 3
+// numbers.splice(0, numbers.length)
+// Solution 4
+// while (numbers.length > 0) {
+//   numbers.pop()
+// }
+
+// Combining and Slicing Array
+// const first = [1, 2, 3]
+// const second = [4, 5, 6]
+// const combined = first.concat(second)
+// const slice = combined.slice() // copy an array
+
 // 阿里巴巴考题
 const obj4 = {
   "2": "a",
@@ -73,3 +95,17 @@ const obj4 = {
 obj4.push('c')
 obj4.push('d')
 console.log(obj4);
+
+// 封装type
+// typeof([]) -- array
+// typeof({}) -- object
+j// typeof(function) -- object
+// typeof(new Number()) -- number Object
+// typeof(123) -- number
+
+// 数组去重
+// 要求在原型链上编程
+
+Array.prototype.unique = function () {
+
+}
