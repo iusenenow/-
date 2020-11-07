@@ -161,11 +161,44 @@
 // }
 
 // 2.Includes重写
-const numbers = [1, 2, 3, 4, -1, 99]
+// Array.prototype.includes1 = function (searchElement) {
+//   for (let element of this)
+//     if (element === searchElement)
+//       return true
+//   return false
+// }
 
-Array.prototype.includes1 = function (searchElement) {
-  for (let element of this)
-    if (element === searchElement)
-      return true
-  return false
+// 3.Except
+// Array.prototype.except = function (excluded) {
+//   const output = []
+//   for (let element of this)
+//     if (!excluded.includes(element))
+//       output.push(element)
+//   return output
+// }
+
+// 4.Moving an Element
+// const numbers = [1, 2, 3, 4]
+
+// Array.prototype.move = function (index, offset) {
+//   const position = index + offset
+
+//   if (position >= this.length || position < 0) {
+//     console.error('Invalid offset!');
+//     return
+//   }
+
+//   const output = [...this]
+//   const element = output.splice(index, 1)[0]
+//   output.splice(position, 0, element)
+//   return output
+// }
+
+// 5.Count Occurrences
+const numbers = [1, 2, 3, 4, 1, 4, 5, 6, 7, 5, 6]
+Array.prototype.countOccurrences = function (searchElement) {
+  return this.reduce((acc, curr) => {
+    const occurrence = (curr === searchElement) ? 1 : 0
+    return acc + occurrence
+  }, 0)
 }
