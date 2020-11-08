@@ -122,20 +122,20 @@ let car2 = new Car('blue', 'wei')
 //console.log(son.firstName, father.firstName); // Wei undefined
 
 //方法的连续调用
-const deng = {
-  smoke() {
-    console.log("Smoking");
-    return this
-  },
-  drink() {
-    console.log("drinking");
-    return this
-  },
-  gamble() {
-    console.log("gambling");
-    return this
-  }
-}
+// const deng = {
+//   smoke() {
+//     console.log("Smoking");
+//     return this
+//   },
+//   drink() {
+//     console.log("drinking");
+//     return this
+//   },
+//   gamble() {
+//     console.log("gambling");
+//     return this
+//   }
+// }
 
 //对象的枚举（遍历）
 // 1.for in
@@ -217,7 +217,7 @@ var obj = {
 }
 
 // 遍历对象 for(var prop in obj)
-// 1.判断是不是原始值 typeo() object
+// 1.判断是不是原始值 typeof() object
 // 2.判断是数组还是对象 instanceof toString constructor
 // 3.建立相应的数组或对象
 

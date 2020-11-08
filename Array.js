@@ -195,39 +195,39 @@
 // }
 
 // 5.Count Occurrences
-const numbers = [1, 2, 3, 4, 1, 4, 5, 6, 7, 5, 6]
-Array.prototype.countOccurrences = function (searchElement) {
-  return this.reduce((acc, curr) => {
-    const occurrence = (curr === searchElement) ? 1 : 0
-    return acc + occurrence
-  }, 0)
-}
+// const numbers = [1, 2, 3, 4, 1, 4, 5, 6, 7, 5, 6]
+// Array.prototype.countOccurrences = function (searchElement) {
+//   return this.reduce((acc, curr) => {
+//     const occurrence = (curr === searchElement) ? 1 : 0
+//     return acc + occurrence
+//   }, 0)
+// }
 
-// 6.Get Max
-Array.prototype.getMax = function () {
-  if (this.length === 0) return undefined
-  // let max = this[0]
-  // for (let i = 1; i < this.length; i++) {
-  //   if (this[i] > max)
-  //     max = this[i]
-  // }
-  // return max
-  return this.reduce((a, b) => (a > b) ? a : b)
-}
+// // 6.Get Max
+// Array.prototype.getMax = function () {
+//   if (this.length === 0) return undefined
+//   // let max = this[0]
+//   // for (let i = 1; i < this.length; i++) {
+//   //   if (this[i] > max)
+//   //     max = this[i]
+//   // }
+//   // return max
+//   return this.reduce((a, b) => (a > b) ? a : b)
+// }
 
-// 7.Movies
-const movies = [
-  { title: 'a', year: 2018, rating: 4.5 },
-  { title: 'b', year: 2018, rating: 4.7 },
-  { title: 'c', year: 2018, rating: 3 },
-  { title: 'd', year: 2017, rating: 4.5 }
-]
-// All the movies in 2018 with rating > 4
-// Sort them by their rating
-// Descending order
-// Pick their title
-const titles = movies
-  .filter(movie => movie.year === 2018 && movie.rating >= 4)
-  .sort((a, b) => a.rating - b.rating)
-  .reverse()
-  .map(movie => movie.title)
+// // 7.Movies
+// const movies = [
+//   { title: 'a', year: 2018, rating: 4.5 },
+//   { title: 'b', year: 2018, rating: 4.7 },
+//   { title: 'c', year: 2018, rating: 3 },
+//   { title: 'd', year: 2017, rating: 4.5 }
+// ]
+// // All the movies in 2018 with rating > 4
+// // Sort them by their rating
+// // Descending order
+// // Pick their title
+// const titles = movies
+//   .filter(movie => movie.year === 2018 && movie.rating >= 4)
+//   .sort((a, b) => a.rating - b.rating)
+//   .reverse()
+//   .map(movie => movie.title)
