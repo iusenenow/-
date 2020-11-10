@@ -39,19 +39,49 @@
 // arguments.length //The number of arguments that were passed to the function.
 
 // 求实参长度：arguments.lenght
-function sum(a, b) {
-  console.log(arguments.length) // 3
-  for (var i = 0; i < arguments.length; i++)
-    console.log(arguments[i]);
-  if (sum.length > arguments.length) {
-    console.log('形参多了')
-  } else if (sum.length < arguments.length) {
-    console.log("实参多了");
-  } else {
-    console.log("相等");
-  }
-}
-sum(11, 2, 9)
+// function sum(a, b) {
+//   console.log(arguments.length) // 3
+//   for (var i = 0; i < arguments.length; i++)
+//     console.log(arguments[i]);
+//   if (sum.length > arguments.length) {
+//     console.log('形参多了')
+//   } else if (sum.length < arguments.length) {
+//     console.log("实参多了");
+//   } else {
+//     console.log("相等");
+//   }
+// }
+// sum(11, 2, 9)
 
 // 求形参长度：函数名.length
-console.log(sum.length); // 4
+// console.log(sum.length); // 4
+
+// 例题
+// 1.实现n的阶乘
+// const n = parseInt(window.prompt("Input"))
+
+// 1）for循环
+// function mul() {
+//   let sum = 1;
+//   for (let i = 1; i <= n; i++)
+//     sum *= i
+//   return sum
+// }
+
+// 2）递归 Recursion：
+// 一、找规律；二、找出口，否则无限死循环
+// 递归只有一点好处：让代码变得更加简洁
+// n! = n * (n - 1)!
+// function mul(n) {
+//   if (n === 1 || n === 0) return 1
+//   return n * mul(n - 1)
+// }
+
+// console.log(mul(n));
+
+// 2.斐波那契数列 Fibonacci sequence：
+function fb(n) {
+  if (n <= 0) return "n should greater than 0."
+  if (n == 1 || n == 2) return 1
+  return fb(n - 1) + fb(n - 2)
+}
