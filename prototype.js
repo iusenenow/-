@@ -252,23 +252,23 @@ function deepClone(origin, target = {}) {
 // console.log(clone2) // shallow copy
 // console.log(superclone); // deep clone
 
-class Character {
-  constructor(name, weapon) {
-    this.name = name
-    this.weapon = weapon
-  }
-  attack() {
-    console.log(this.name + ' Attacks with ' + this.weapon + '.')
-  }
-}
+// class Character {
+//   constructor(name, weapon) {
+//     this.name = name
+//     this.weapon = weapon
+//   }
+//   attack() {
+//     console.log(this.name + ' Attacks with ' + this.weapon + '.')
+//   }
+// }
 
-class Elf extends Character {
-  constructor(name, weapon, type) {
-    super(name, weapon)
-    this.type = type
-  }
-}
+// class Elf extends Character {
+//   constructor(name, weapon, type) {
+//     super(name, weapon)
+//     this.type = type
+//   }
+// }
 
-const dolby = new Elf('Dolby', 'cloth', 'house')
+// const dolby = new Elf('Dolby', 'cloth', 'house')
 
-dolby.attack()
+// dolby.attack()

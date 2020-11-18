@@ -40,3 +40,41 @@
 // }
 
 // getUser()
+
+// Real example:
+// Get search data from web page form
+const getFormData = () => {
+  return {
+    firstName: "Bruce",
+    lastName: "Lee",
+    categories: ["nerdy"]
+  }
+}
+
+// Get search URL
+const getRequestURL = (requestData) => {
+  return `http://api.icndb.com/jokes/random?firstName=${requestData.firstName}&lastName=${requestData.lastName}&limitTo=${requestData.categories}`
+}
+
+// Get joke
+const getJoke = async (url) => {
+  const response = await fetch(url)
+  const data = await response.json()
+  const joke = data.value.joke
+  postJokeToPage(joke)
+}
+
+// Display joke
+const postJokeToPage = (joke) => {
+  console.log(joke);
+}
+
+// Procedual "workflow" function
+const processJokeRequest = async () => {
+  const requestData = getFormData()
+  const requestURL = getRequestURL(requestData)
+  await getJoke(requestURL)
+  console.log("finished!");
+}
+
+processJokeRequest()
