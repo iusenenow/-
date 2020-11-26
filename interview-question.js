@@ -188,3 +188,55 @@
 //   }
 // }
 // print()()
+
+// 14 Function Parameters
+let f = function (a, b) {
+  arguments.length === f.length ? console.log('We have a match') : console.log('No match')
+}
+
+f(1) // No match
+f(1, 2) // We have a match
+f(1, 2, 3) // No match
+
+// 15 Async
+let num = 0
+async function increment() {
+  num += await 2 // num = 0 + await 2
+  console.log(num); // 2
+}
+increment()
+num += 1
+console.log(num); // 1
+
+// 16 Closure
+function f1(a) {
+  let b = 2
+  setTimeout(function () {
+    console.log(a, b); // 3 3 3
+  }, 1000)
+}
+
+function f2() {
+  for (var i = 0; i < 3; i++) {
+    setTimeout(function () {
+      console.log(i); // 3 3 3
+    }, 1000 * i)
+  }
+}
+
+function f3() {
+  for (let i = 0; i < 3; i++) {
+    setTimeout(function () {
+      console.log(i); // 1 2 3
+    }, 1000 * i)
+  }
+  // i no longer exists
+}
+
+function f4() {
+  for (var i = 0; i < 3; i++) {
+    setTimeout((function (x) {
+      console.log(x)
+    }).bind(null, i), 1000 * i)
+  }
+}
