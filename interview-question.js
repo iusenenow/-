@@ -237,6 +237,6 @@ function f4() {
   for (var i = 0; i < 3; i++) {
     setTimeout((function (x) {
       console.log(x)
-    }).bind(null, i), 1000 * i)
+    }).bind(this, i), 1000 * i)
   }
 }
