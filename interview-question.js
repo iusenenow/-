@@ -241,9 +241,61 @@
 //   }
 // }
 
-// 16 Array: Create an Array that is prepopulated
+// 16 Array: Create an Array that is prepopulated with number between 0-9
 let array1 = Array.from({ length: 5 }, item => Math.floor(Math.random() * 10))
-console.log(array1);
+// console.log(array1);
 
 let array2 = new Array(5).fill(null).map(item => Math.floor(Math.random() * 10))
-console.log(array2);
+// console.log(array2);
+
+// 17 map & parseInt
+let result1 = ['1', '7', '11'].map(parseInt)
+// console.log(result1); // [1, NaN, 3]
+// parseInt(num, radix) //default radix 10
+// array.map((val, idx, arr) => {})
+let result2 = ['1', '7', '11'].map(item => parseInt(item))
+// console.log(result2);
+// '1', 0 - default 10 radix
+// '7', 1 - 1 is ok as the radix but 7 is illegal => NaN
+// '11', 2 - binary as the radix 00000011 in decimal is 3
+
+// 18 Dot notation & square brackets
+let sam = { castiel: "mary" }
+let dean = {
+  john: "crowley",
+  mary: "chuck"
+}
+
+// console.log(dean[sam.castiel]); // dean['mary'] => chuck
+// console.log(dean.sam.castiel); // fail
+// console.log(dean[sam['castiel']]); // dean['mary] => chuck
+// console.log(dean[sam[castiel]]); // dean[sam[undefined]]
+
+// 19 Integers: Write a function to determine if a number is an integer
+function isInt(num) {
+  return (!isNaN(num) && parseInt(num) === num)
+}
+// console.log(isInt(3))
+// console.log(isInt(4.5))
+// console.log(isInt(1.00000))
+
+// 20 Anagrams
+function isAnagram(str1, str2) {
+  let sorted1 = str1.split('').sort().join('').toLowerCase()
+  let sorted2 = str2.split('').sort().join('').toLowerCase()
+  return (sorted1 === sorted2)
+}
+console.log(isAnagram('hello', 'lolej'))
+console.log(isAnagram('hello', 'olehl'))
+
+// Calculating Differences
+let numberOfArray = [12, 2, 10, 6, 5, 5, 6, 9, 10, 33, 12, 9, 7]
+let difference = (function (arr) {
+  // remove duplicates with Set
+  // pass set back to an array
+  // numerical sort
+  // calculate difference between first and last digits
+  let answer = Array.from(new Set(arr)).sort((a, b) => b - a)
+  return answer[0] - answer[answer.length - 1]
+})(numberOfArray)
+console.log(difference)
