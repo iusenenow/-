@@ -190,53 +190,60 @@
 // print()()
 
 // 14 Function Parameters
-let f = function (a, b) {
-  arguments.length === f.length ? console.log('We have a match') : console.log('No match')
-}
+// let f = function (a, b) {
+//   arguments.length === f.length ? console.log('We have a match') : console.log('No match')
+// }
 
-f(1) // No match
-f(1, 2) // We have a match
-f(1, 2, 3) // No match
+// f(1) // No match
+// f(1, 2) // We have a match
+// f(1, 2, 3) // No match
 
 // 15 Async
-let num = 0
-async function increment() {
-  num += await 2 // num = 0 + await 2
-  console.log(num); // 2
-}
-increment()
-num += 1
-console.log(num); // 1
+// let num = 0
+// async function increment() {
+//   num += await 2 // num = 0 + await 2
+//   console.log(num); // 2
+// }
+// increment()
+// num += 1
+// console.log(num); // 1
 
 // 16 Closure
-function f1(a) {
-  let b = 2
-  setTimeout(function () {
-    console.log(a, b); // 3 3 3
-  }, 1000)
-}
+// function f1(a) {
+//   let b = 2
+//   setTimeout(function () {
+//     console.log(a, b)
+//   }, 1000)
+// }
 
-function f2() {
-  for (var i = 0; i < 3; i++) {
-    setTimeout(function () {
-      console.log(i); // 3 3 3
-    }, 1000 * i)
-  }
-}
+// function f2() {
+//   for (var i = 0; i < 3; i++) {
+//     setTimeout(function () {
+//       console.log(i); // 3 3 3
+//     }, 1000 * i)
+//   }
+// }
 
-function f3() {
-  for (let i = 0; i < 3; i++) {
-    setTimeout(function () {
-      console.log(i); // 1 2 3
-    }, 1000 * i)
-  }
-  // i no longer exists
-}
+// function f3() {
+//   for (let i = 0; i < 3; i++) {
+//     setTimeout(function () {
+//       console.log(i); // 1 2 3
+//     }, 1000 * i)
+//   }
+//   // i no longer exists
+// }
 
-function f4() {
-  for (var i = 0; i < 3; i++) {
-    setTimeout((function (x) {
-      console.log(x)
-    }).bind(this, i), 1000 * i)
-  }
-}
+// function f4() {
+//   for (var i = 0; i < 3; i++) {
+//     setTimeout((function (x) {
+//       console.log(x)
+//     }).bind(this, i), 1000 * i)
+//   }
+// }
+
+// 16 Array: Create an Array that is prepopulated
+let array1 = Array.from({ length: 5 }, item => Math.floor(Math.random() * 10))
+console.log(array1);
+
+let array2 = new Array(5).fill(null).map(item => Math.floor(Math.random() * 10))
+console.log(array2);
