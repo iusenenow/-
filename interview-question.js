@@ -301,14 +301,40 @@ let difference = (function (arr) {
 // console.log(difference)
 
 // 21 Palindrome
-let palindrome = function (word) {
+function palindrome(word) {
   let start = word.substring(0, Math.floor(word.length / 2)).toLowerCase()
   let end = word.substring(word.length - Math.floor(word.length / 2)).toLowerCase()
   let flip = end.split('').reverse().join('')
   return start === flip
 }
 
-console.log(palindrome('radar'))
-console.log(palindrome('redder'))
-console.log(palindrome('window'))
-console.log(palindrome('wiriw'))
+// console.log(palindrome('radar'))
+// console.log(palindrome('redder'))
+// console.log(palindrome('window'))
+// console.log(palindrome('wiriw'))
+
+// 22 Variables
+(function f1() {
+  var a = 1, b = 1
+  var x = y = 2
+})(); // window.y => 2
+(function f2() {
+  let j = 1, k = 1
+  let r = s = 2
+})() // window.s => 2
+
+// 23 Object
+let obj5 = {
+  'a': 'three',
+  b: 4,
+  'c': "five",
+  a: 3,
+  'b': "four",
+  "c": 'fem',
+  "a": "tre",
+  "b": 'fyra',
+  c: 5
+}
+
+console.log(obj5) // {a: "tre", b: "fyra", c: 5}
+// Writing Key with single or double or no quotes at all, they will all be interpreted as strings. If property being defined multiple times, one going to be left with whatever the final values is for those.
