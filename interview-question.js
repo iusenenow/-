@@ -285,10 +285,10 @@ function isAnagram(str1, str2) {
   let sorted2 = str2.split('').sort().join('').toLowerCase()
   return (sorted1 === sorted2)
 }
-console.log(isAnagram('hello', 'lolej'))
-console.log(isAnagram('hello', 'olehl'))
+// console.log(isAnagram('hello', 'lolej'))
+// console.log(isAnagram('hello', 'olehl'))
 
-// Calculating Differences
+// 20 Calculating Differences
 let numberOfArray = [12, 2, 10, 6, 5, 5, 6, 9, 10, 33, 12, 9, 7]
 let difference = (function (arr) {
   // remove duplicates with Set
@@ -298,4 +298,17 @@ let difference = (function (arr) {
   let answer = Array.from(new Set(arr)).sort((a, b) => b - a)
   return answer[0] - answer[answer.length - 1]
 })(numberOfArray)
-console.log(difference)
+// console.log(difference)
+
+// 21 Palindrome
+let palindrome = function (word) {
+  let start = word.substring(0, Math.floor(word.length / 2)).toLowerCase()
+  let end = word.substring(word.length - Math.floor(word.length / 2)).toLowerCase()
+  let flip = end.split('').reverse().join('')
+  return start === flip
+}
+
+console.log(palindrome('radar'))
+console.log(palindrome('redder'))
+console.log(palindrome('window'))
+console.log(palindrome('wiriw'))
