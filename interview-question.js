@@ -338,3 +338,10 @@ let obj5 = {
 
 console.log(obj5) // {a: "tre", b: "fyra", c: 5}
 // Writing Key with single or double or no quotes at all, they will all be interpreted as strings. If property being defined multiple times, one going to be left with whatever the final values is for those.
+
+const box = {}
+const bag = { prop: "bag", can: "box" }
+const can = { prop: "can", bag: "box" }
+box[bag] = "Monday" // box['[Object object]'] = "Monday"
+box[can] = "Tuesday" // box['[Object object]'] = "Tuesday"
+console.log(box, box[bag]);
