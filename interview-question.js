@@ -336,7 +336,7 @@ let obj5 = {
   c: 5
 }
 
-console.log(obj5) // {a: "tre", b: "fyra", c: 5}
+// console.log(obj5) // {a: "tre", b: "fyra", c: 5}
 // Writing Key with single or double or no quotes at all, they will all be interpreted as strings. If property being defined multiple times, one going to be left with whatever the final values is for those.
 
 const box = {}
@@ -344,4 +344,36 @@ const bag = { prop: "bag", can: "box" }
 const can = { prop: "can", bag: "box" }
 box[bag] = "Monday" // box['[Object object]'] = "Monday"
 box[can] = "Tuesday" // box['[Object object]'] = "Tuesday"
-console.log(box, box[bag]);
+// console.log(box, box[bag]); // => "Tuesday" Object Keys are always going to be STRING!!!
+
+// What will be the output of this code and why?
+let obja = { a: 1 }
+let objb = { a: 1 }
+if ({ a: 1 } === { a: 1 }) {
+  console.log("Monday");
+} else if ({ a: 1 } == { a: 1 }) {
+  console.log("Tuesday");
+} else if (obja == { a: 1 }) {
+  console.log("Wednesday");
+} else if (obja == objb) {
+  console.log("Thursday");
+} else if (Object.is(obja, objb)) {
+  console.log("Friday");
+} else {
+  console.log("Saturday");
+}
+// Saturday
+
+// 24 Array
+/**
+ * What will the output of the following two loops be?
+ */
+const numbers = [1, 2, 3];
+numbers[10] = 11;
+
+for (let i = 0; i < numbers.length; i++) {
+  console.log(i, numbers[i]);
+}
+numbers.forEach((num, idx) => {
+  console.log(idx, num);
+}); // Only look at the actual value
