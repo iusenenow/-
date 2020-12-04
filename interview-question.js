@@ -349,19 +349,19 @@ box[can] = "Tuesday" // box['[Object object]'] = "Tuesday"
 // What will be the output of this code and why?
 let obja = { a: 1 }
 let objb = { a: 1 }
-if ({ a: 1 } === { a: 1 }) {
-  console.log("Monday");
-} else if ({ a: 1 } == { a: 1 }) {
-  console.log("Tuesday");
-} else if (obja == { a: 1 }) {
-  console.log("Wednesday");
-} else if (obja == objb) {
-  console.log("Thursday");
-} else if (Object.is(obja, objb)) {
-  console.log("Friday");
-} else {
-  console.log("Saturday");
-}
+// if ({ a: 1 } === { a: 1 }) {
+//   console.log("Monday");
+// } else if ({ a: 1 } == { a: 1 }) {
+//   console.log("Tuesday");
+// } else if (obja == { a: 1 }) {
+//   console.log("Wednesday");
+// } else if (obja == objb) {
+//   console.log("Thursday");
+// } else if (Object.is(obja, objb)) {
+//   console.log("Friday");
+// } else {
+//   console.log("Saturday");
+// }
 // Saturday
 
 // 24 Array
@@ -377,3 +377,41 @@ numbers[10] = 11;
 // numbers.forEach((num, idx) => {
 //   console.log(idx, num);
 // }); // Only look at the actual value
+
+// 25 Numbers
+let n1 = 100 // primitive
+let n2 = new Number(100) // object
+let n3 = Number(100) // primitive
+n1.prop = true
+n2.prop = true
+n3.prop = true;
+// console.log(n1, n1.prop)
+// console.log(n2, n2.prop)
+// console.log(n3, n3.prop);
+
+// 26 Scope
+// (() => {
+//   let one, two
+//   try {
+//     throw new Error(321)
+//   } catch (one) {
+//     (one = 123), (two = 321)
+//     console.log(one); // 123
+//   }
+//   console.log(one); // undefined
+//   console.log(two); // 321
+// })()
+
+// 27 Double Bang
+// console.log(!!true); // true
+// console.log(!!"");  // false
+// console.log(!!1); // true
+// console.log(!!-1); // true
+// console.log(!!NaN);  // false
+// console.log(!!undefined); // false
+// console.log(!!"false"); // true
+// console.log(!!null); // false
+
+// 28 Comma
+let n = ((x = 1), (y = 2), (z = 3))
+console.log(n); // final value get assign to the variable
