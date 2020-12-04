@@ -36,3 +36,19 @@ Array.prototype.unique = function () {
   }
   return arr
 }
+
+// 3.Flip
+String.prototype.flip = function () {
+  let str = this
+  let mark
+  let reg = /[?.!]/
+  let match = str.match(reg) // return null or array
+  if (match) {
+    mark = match[0]
+    str = str.replace(mark, '')
+  }
+  return str.split('').reverse().join('') + mark
+}
+
+let str = "Can I use Google during the interview?"
+// console.log(str.flip())
