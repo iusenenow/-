@@ -429,6 +429,13 @@ let first = !+[] * [] // +[] => 0, !0 => true, true * [] => 0
 let second = !+[] + [] * [] // true + 0 => 1
 let third = (!+[] + [] + ![]).length // (true + [] + false).length => 9
 
-console.log(first);
-console.log(second);
-console.log(third);
+// console.log(first);
+// console.log(second);
+// console.log(third);
+
+// 31 Array Comparisons
+console.log(["a", "b"] == ["a", "b"]); // Arrays are Objects, so false
+console.log(["a", "b"] == ["a", "b"] + []); // true. ['a', 'b'] == 'a, b' + '' => 'a,b' == 'a,b' => true
+console.log(["a", "b", "c"] == ["a", "b"] + []); // false
+console.log(["a", "b"] == ["b", "a"]); // false
+console.log(["a", "b"] == "a,b"); // true
