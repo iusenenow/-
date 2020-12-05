@@ -414,4 +414,21 @@ n3.prop = true;
 
 // 28 Comma
 let n = ((x = 1), (y = 2), (z = 3))
-console.log(n); // final value get assign to the variable
+// console.log(n); // final value get assign to the variable
+
+// 29 Unary-plus
+// console.log(+"1"); // 1
+// console.log(+true); // 1
+// console.log(+false); // 0
+// console.log(+""); // 0
+// console.log(+"hello"); // NaN
+// console.log(+1); // 1
+
+// 30 Quirky JavaScript
+let first = !+[] * [] // +[] => 0, !0 => true, true * [] => 0
+let second = !+[] + [] * [] // true + 0 => 1
+let third = (!+[] + [] + ![]).length // (true + [] + false).length => 9
+
+console.log(first);
+console.log(second);
+console.log(third);
