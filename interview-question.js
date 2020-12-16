@@ -434,8 +434,8 @@ let third = (!+[] + [] + ![]).length // (true + [] + false).length => 9
 // console.log(third);
 
 // 31 Array Comparisons
-console.log(["a", "b"] == ["a", "b"]); // Arrays are Objects, so false
-console.log(["a", "b"] == ["a", "b"] + []); // true. ['a', 'b'] == 'a, b' + '' => 'a,b' == 'a,b' => true
-console.log(["a", "b", "c"] == ["a", "b"] + []); // false
-console.log(["a", "b"] == ["b", "a"]); // false
-console.log(["a", "b"] == "a,b"); // true
+// console.log(["a", "b"] == ["a", "b"]); // Arrays are Objects, so false
+// console.log(["a", "b"] == ["a", "b"] + []); // true. ['a', 'b'] == 'a, b' + '' => 'a,b' == 'a,b' => true
+// console.log(["a", "b", "c"] == ["a", "b"] + []); // false
+// console.log(["a", "b"] == ["b", "a"]); // false
+// console.log(["a", "b"] == "a,b"); // true
