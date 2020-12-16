@@ -6,11 +6,11 @@ let obj = {
   card: ['visa', 'master']
 }
 
-function shallowCloneObj(origin, target = {}) {
+function shallowCloneObj(origin, clone = {}) {
   for (let key in origin) {
-    target[key] = origin[key]
+    clone[key] = origin[key]
   }
-  return target
+  return clone
 }
 
 const objShallowClone = shallowCloneObj(obj)
