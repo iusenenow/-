@@ -78,3 +78,21 @@ const processJokeRequest = async () => {
 }
 
 // processJokeRequest()
+
+const handleGuess = async () => {
+  try {
+    const result = await enterNumber(); // Instead of the then method, we can get the result directly by just putting await before the promise
+
+    alert(`Dice: ${result.randomNumber}: you got ${result.points} points`);
+
+    const isContinuing = await continueGame();
+
+    if (isContinuing) {
+      handleGuess();
+    } else {
+      alert("Game ends");
+    }
+  } catch (error) { // Instead of catch method, we can use the try, catch syntax
+    alert(error);
+  }
+};
