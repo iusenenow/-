@@ -177,3 +177,12 @@ let car2 = new Car('blue', 'wei')
 // Object.prototype.toString.call([]) //"[object Array]"
 // Object.prototype.toString.call(123) //"[object Number]"
 // Object.prototype.toString.call({}) //"[object Object]"
+
+
+leo.hasOwnProperty('name')
+
+for (let key in leo) {
+  if (leo.hasOwnProperty(key)) {
+    console.log(`Key: ${key} Value: ${leo[key]}`)
+  }
+}
