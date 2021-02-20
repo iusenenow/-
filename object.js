@@ -9,6 +9,7 @@ const obj1 = {
 }
 // obj1.prop3()
 
+
 // 2.Object.create() with descriptors
 let proto = {
   prop3: function () { console.log(this.prop1) }

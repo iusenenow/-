@@ -4,6 +4,8 @@
 // 3.对象如何查看原型：隐式属性__proto__。
 // 4.对象如何查看对象的构造函数：constructor。可手动更改
 
+
+
 // Car.prototype 原型
 // Car.prototype = {} 是祖先
 function Car(color, owner) {
