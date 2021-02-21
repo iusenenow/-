@@ -13,6 +13,11 @@ function shallowCloneObj(origin, clone = {}) {
   return clone
 }
 
+// const shallowCloneObj = (origin, clone = {}) => {
+//   for (let key in origin) clone[key] = origin[key]
+//   return clone
+// }
+
 const objShallowClone = shallowCloneObj(obj)
 
 // obj.sex = "male"
