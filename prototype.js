@@ -179,10 +179,33 @@ let car2 = new Car('blue', 'wei')
 // Object.prototype.toString.call({}) //"[object Object]"
 
 
-leo.hasOwnProperty('name')
+// leo.hasOwnProperty('name')
 
-for (let key in leo) {
-  if (leo.hasOwnProperty(key)) {
-    console.log(`Key: ${key} Value: ${leo[key]}`)
-  }
+// for (let key in leo) {
+//   if (leo.hasOwnProperty(key)) {
+//     console.log(`Key: ${key} Value: ${leo[key]}`)
+//   }
+// }
+
+// Prototypal inheritance
+function Person(name) {
+  this.name = name
 }
+
+Person.prototype.sayMyName = function () { console.log(`My name is ${this.name}`) }
+Person.prototype.eat = function (food) { console.log(`I'm eating ${food}`) }
+Person.prototype.sleep = function () { console.log("Sleeping") }
+
+function Programmer(name, language) {
+  Person.call(this, name)
+  this.language = language
+}
+
+Programmer.prototype = Object.create(Person.prototype)
+
+Programmer.prototype.code = function () { console.log(`I'm coding in ${this.language}`) }
+
+Programmer.prototype.constructor = Programmer
+
+const vishwas = new Programmer('vishwas', 'JavaScript')
+
