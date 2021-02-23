@@ -1,3 +1,73 @@
+// Timeouts & Intervals
+function greet(name, age) {
+  console.log(`Hello, my name is ${name}, and I am ${age} years old.`)
+}
+
+const timeout = setTimeout(greet, 2000, 'Vishwas', 39)
+
+clearTimeout(timeout)
+
+function greet2(name) {
+  console.log(`Hello, ${name}`)
+}
+
+const interval = setInterval(greet2, 2000, 'Vishwas')
+
+clearInterval(interval)
+
+// throttle function
+
+function throttle(fn, time) {
+  let throttled
+  return function () {
+    if (!throttled) {
+      fn.apply(this, arguments)
+      throttled = true
+      setTimeout(() => {
+        throttled = false
+      }, time)
+    }
+  }
+}
+
+const logger = args => console.log('Log data', args)
+
+const throttleLogger = throttle(logger, 2000)
+
+throttleLogger(1)
+throttleLogger(2)
+throttleLogger(3)
+throttleLogger(4)
+throttleLogger(5)
+throttleLogger(6)
+throttleLogger(7)
+throttleLogger(8)
+
+// debounce function
+function debounce(fn, wait) {
+  let timer
+  return function () {
+    if (timer) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(() => {
+      fn.apply(this, arguments)
+    }, wait)
+  }
+}
+
+const debouncedLogger = debounce(logger, 2000)
+
+debouncedLogger(1)
+debouncedLogger(2)
+debouncedLogger(3)
+debouncedLogger(4)
+debouncedLogger(5)
+debouncedLogger(6)
+debouncedLogger(7)
+debouncedLogger(8)
+
+
 // Promise and fetch
 // const promise = new Promise((resolve, reject) => {
 //   setTimeout(() => resolve('Resolving an asynchronous request. 哈哈哈哈哈哈哈哈哈哈'), 1000)
