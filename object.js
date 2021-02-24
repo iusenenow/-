@@ -74,3 +74,23 @@ class ObjClass {
 let obj6 = new ObjClass('value1', 'value2')
 // console.log(obj6);
 // obj6.prop3()
+
+// There are many ways to create objects in javascript as below
+
+// 1.Object constructor: The simplest way to create an empty object is using the Object constructor. Currently this approach is not recommended.
+//const object = new Object()
+
+// 2.Object's create method: The create method of Object creates a new object by passing the prototype object as a parameter.
+//const object = Object.create(null)
+
+// 3.Object literal:
+// const object = {}
+
+// 4.Function constructor
+function Person(name) {
+  var object = {};
+  object.name = name;
+  object.age = 21;
+  return object;
+}
+var object = new Person("Sudheer");
