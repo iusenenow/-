@@ -2,8 +2,6 @@ function sum(a, b, c) {
   return a + b + c
 }
 
-
-
 // check if number of arguments passed in is greater than the number of arguments the original function has.
 
 // solution 1:

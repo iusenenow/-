@@ -21,7 +21,7 @@
 
 // for - looping
 const emojis = ['😀', '😆', '🙃', '😍'];
-const wavingEmojis = ;
+//const wavingEmojis
 
 for (let i = 0; i < emojis.length; i++) { wavingEmojis.push(`👋${emojis[i]}👋`); }
 

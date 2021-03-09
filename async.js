@@ -30,6 +30,19 @@ function throttle(fn, time) {
   }
 }
 
+function throttle(fn, time) {
+  let throttled
+  return function () {
+    if (!throttled) {
+      fn.apply(this, arguments)
+      throttled = true
+      setTimeout(() => {
+        throttled = false
+      }, time)
+    }
+  }
+}
+
 const logger = args => console.log('Log data', args)
 
 const throttleLogger = throttle(logger, 2000)
