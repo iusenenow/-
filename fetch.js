@@ -7,6 +7,7 @@ console.log(url)
 fetch(url)
   .then(response => {
     if (response.ok) {
+      console.log(response.headers.get('Content-Type'));
       return response.json()
     } else {
       throw new Error('Invalid user ID')
@@ -20,3 +21,8 @@ fetch(url)
     output.textContent = jsonData
   })
   .catch(error => console.log('Error: ', error.message))
+
+// 2. Fetch with Request and Headers Objects
+// new Request(url, options)
+// options - method, headers, body, mode
+// methods: GET, POST, PUT, DELETE, OPTIONS
