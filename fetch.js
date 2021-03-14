@@ -1,11 +1,22 @@
-//let response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+const rootUrl = 'http://jsonplaceholder.typicode.com'
+let id = Math.floor(Math.random() * 20) + 1
+let url = `${rootUrl}/users/${id}`
 
-// if (response.ok) {
-//   let json = await response.json()
-// } else {
-//   alert("HTTP-Error" + response.status)
-// }
+console.log(url)
 
-fetch('https://jsonplaceholder.typicode.com/todos/1')
-  .then(response => console.log(response.headers.get('Content-Type')))
-//  .then(data => console.log(data))
+fetch(url)
+  .then(response => {
+    if (response.ok) {
+      return response.json()
+    } else {
+      throw new Error('Invalid user ID')
+    }
+  })
+  .then(data => {
+    console.log(data)
+    let jsonData = JSON.stringify(data)
+    console.log(jsonData)
+    let output = document.getElementById('output')
+    output.textContent = jsonData
+  })
+  .catch(error => console.log('Error: ', error.message))
