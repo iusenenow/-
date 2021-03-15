@@ -4,10 +4,24 @@ let url = `${rootUrl}/users/${id}`
 
 console.log(url)
 
-fetch(url)
+
+let headers = new Headers()
+headers.append('Accept', 'application/json')
+let req = new Request(url, {
+  method: 'GET',
+  headers: headers,
+  mode: 'cors'
+})
+
+fetch(req)
   .then(response => {
+    console.log(response);
+    console.log(response.headers.get('Content-Type'))
+    //append() delete() get() has() values() keys() entries() set()
+    for (let header of response.headers) {
+      // console.log(header)
+    }
     if (response.ok) {
-      console.log(response.headers.get('Content-Type'));
       return response.json()
     } else {
       throw new Error('Invalid user ID')
@@ -26,3 +40,7 @@ fetch(url)
 // new Request(url, options)
 // options - method, headers, body, mode
 // methods: GET, POST, PUT, DELETE, OPTIONS
+
+// new Headers()
+// headers.append(name, value)
+// Content-Type, Content-Length, Accept, Accept-Language, X-Requested-With, User-Agent
