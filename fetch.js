@@ -16,10 +16,19 @@ let req = new Request(url, {
 fetch(req)
   .then(response => {
     console.log(response);
+    //body: (...)
+    //bodyUsed: true/false
+    //headers: Headers {}
+    //ok: true/false
+    //redirected: false
+    //status: 200/404/500
+    //statusText: "OK" "Not Found"
+    //type: "cors"
+    //url: "http://jsonplaceholder.typicode.com/users/1
     console.log(response.headers.get('Content-Type'))
     //append() delete() get() has() values() keys() entries() set()
-    for (let header of response.headers) {
-      // console.log(header)
+    for (let [key, value] of response.headers) {
+      // console.log(`${key} = ${value}`)
     }
     if (response.ok) {
       return response.json()
